@@ -40,4 +40,4 @@ EXPOSE 80
 
 # 📍 AUTOMATED STARTUP ENGAGEMENT CODES WRAPPER:
 # Automatically runs database migrations and seeds your pizzeria menus on every system boot loop.
-CMD php artisan migrate:fresh --seed --force && apache2-foreground
+CMD ["apache2-foreground"]
