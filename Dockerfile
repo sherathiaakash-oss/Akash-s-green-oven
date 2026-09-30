@@ -38,5 +38,6 @@ RUN chown -R www-data:www-data /var/www/html \
 # Expose the standard web connection port entry gate
 EXPOSE 80
 
-# Boot up the Apache production engine loop
-CMD ["apache2-foreground"]
+# 📍 AUTOMATED STARTUP ENGAGEMENT CODES WRAPPER:
+# Automatically runs database migrations and seeds your pizzeria menus on every system boot loop.
+CMD php artisan migrate:fresh --seed --force && apache2-foreground
