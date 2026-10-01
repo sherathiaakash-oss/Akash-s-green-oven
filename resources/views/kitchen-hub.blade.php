@@ -3,8 +3,6 @@
 @section('content')
 <div class="bg-slate-950 min-h-screen text-slate-100 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto space-y-10">
-
-        <!-- Administrative Main Banner Header -->
         <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl border-b-4 border-red-600 select-none">
             <div class="flex items-center gap-4">
                 <div class="w-14 h-14 bg-red-600/10 border border-red-500/20 text-red-500 rounded-2xl flex items-center justify-center text-3xl shadow-md rotate-3">👨‍🍳</div>
@@ -18,7 +16,6 @@
             </button>
         </div>
 
-        <!-- 🛠️ INTERACTIVE VISUAL TAB BAR (Matching Your Uploaded Image) -->
         <div class="flex flex-wrap items-center bg-slate-900 p-2 rounded-2xl border border-slate-800/60 shadow-inner select-none gap-2">
             <button onclick="public_function_switchKitchenTab('tab-sides', this)" class="px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider cursor-pointer transition-all bg-slate-950 text-white shadow border border-slate-800">Sides</button>
             <button onclick="public_function_switchKitchenTab('tab-drinks', this)" class="px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider cursor-pointer transition-all text-slate-400 hover:text-white">Cold Drinks</button>
@@ -29,7 +26,6 @@
             <button onclick="public_function_switchKitchenTab('tab-monthly', this)" class="px-5 py-3 rounded-xl text-xs font-black uppercase tracking-wider cursor-pointer transition-all text-slate-400 hover:text-white">Monthly Deals</button>
         </div>
 
-        <!-- POPUP MODAL DIALOG CONTAINER FRAME FOR NEW CREATIONS -->
         <div id="modalAddProductFrame" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md items-center justify-center p-4">
             <div class="bg-slate-900 border border-slate-800 text-white rounded-3xl w-full max-w-md overflow-hidden p-6 space-y-5 shadow-2xl">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
@@ -74,7 +70,6 @@
                 </form>
             </div>
         </div>
-        <!-- MAIN CONTENT SWITCHING AREA CONTAINER -->
         <div id="kitchenHubTabsCanvas">
 
             @foreach([
@@ -119,7 +114,6 @@
 
                                     <div>
                                         <label class="block text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1 select-none">Menu Card Subtitle Description</label>
-                                        <!-- Fixed Line 122: Adaptive check handler. Fallbacks onto drink_description for cold_drinks table cleanly -->
                                         <textarea rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs font-medium text-slate-300 focus:ring-1 focus:ring-red-600 focus:outline-none resize-none leading-relaxed hub-input-desc">{{ isset($item->description) ? $item->description : ($item->drink_description ?? '') }}</textarea>
                                     </div>
                                 </div>
@@ -148,7 +142,6 @@
     </div>
 </div>
 <script>
-    // --- JAVASCRIPT SECTION: INTERACTIVE BUTTON SWITCHING CONTROLLER ---
     function public_function_switchKitchenTab(targetTabId, clickedButton) {
         document.querySelectorAll('.kitchen-view-panel').forEach(panel => {
             panel.classList.add('hidden');
@@ -183,7 +176,6 @@
         }
     }
 
-    // --- ASYNC FORM SUBMISSION CREATE APPEND DATA PIPELINE ---
     document.getElementById('frmKitchenHubProductCreate').addEventListener('submit', async function(e) {
         e.preventDefault();
         const formData = new FormData(this);
@@ -207,7 +199,6 @@
         } catch (err) { console.error(err); }
     });
 
-    // --- INLINE EDIT MODIFICATION SYNCHRONIZER PIPELINES ---
     async function public_function_executeInlineHubUpdate(id, tableName, cardElement) {
         const payload = {
             id: id,
@@ -234,7 +225,6 @@
         } catch (e) { console.error(e); }
     }
 
-    // --- PERMANENT DATA PURGING DISPATCHER HIGHWAY ---
     async function public_function_executeHubItemDelete(id, tableName) {
         if (!confirm("Are you sure you want to permanently drop this menu variation out of your database rows?")) return;
 
