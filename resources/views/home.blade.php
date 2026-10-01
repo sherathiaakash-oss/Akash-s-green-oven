@@ -47,7 +47,9 @@
                     <button onclick="switchActiveMenuTab(this, 'cat-premium')"
                         class="menu-tab-nav-btn bg-slate-100 text-slate-700 hover:text-slate-900 px-5 py-3 rounded-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap cursor-pointer hover:bg-slate-200 shadow-sm">Premium
                         Range</button>
-                    <button onclick="switchActiveMenuTab(this, 'sec-custom-builder')" class="menu-tab-nav-btn bg-slate-100 text-slate-700 hover:text-slate-900 px-5 py-3 rounded-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap cursor-pointer hover:bg-slate-200 shadow-sm font-black text-xs uppercase tracking-wider">Create Your Own</button>
+                    <button onclick="switchActiveMenuTab(this, 'sec-custom-builder')"
+                        class="menu-tab-nav-btn bg-slate-100 text-slate-700 hover:text-slate-900 px-5 py-3 rounded-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap cursor-pointer hover:bg-slate-200 shadow-sm font-black text-xs uppercase tracking-wider">Create
+                        Your Own</button>
                     <button onclick="switchActiveMenuTab(this, 'sec-sides')"
                         class="menu-tab-nav-btn bg-slate-100 text-slate-700 hover:text-slate-900 px-5 py-3 rounded-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap cursor-pointer hover:bg-slate-200 shadow-sm">Sides</button>
                     <button onclick="switchActiveMenuTab(this, 'sec-drinks')"
@@ -92,16 +94,20 @@
                             class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             <div
                                 class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🍕</span>
+                                <img src="{{ asset('images/' . $pizza->name . '.webp') }}" alt="{{ $pizza->name }}"
+                                    loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
                             </div>
                             <div class="p-6 flex flex-col grow">
                                 <h3
                                     class="text-lg font-black text-slate-900 mb-1 tracking-tight group-hover:text-red-600 transition-colors duration-200">
-                                    {{ $pizza->name }}</h3>
+                                    {{ $pizza->name }}
+                                </h3>
                                 <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">Prepared on a premium
                                     {{ strtolower($pizza->dough->name) }} canvas, spread with artisanal
-                                    {{ strtolower($pizza->sauce->name) }}, and loaded with fresh toppings.</p>
+                                    {{ strtolower($pizza->sauce->name) }}, and loaded with fresh toppings.
+                                </p>
                                 <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
                                     <div class="flex flex-col"><span
                                             class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Regular
@@ -129,16 +135,20 @@
                             class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             <div
                                 class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🍕</span>
+                                <img src="{{ asset('images/' . $pizza->name . '.webp') }}" alt="{{ $pizza->name }}"
+                                    loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
                             </div>
                             <div class="p-6 flex flex-col grow">
                                 <h3
                                     class="text-lg font-black text-slate-900 mb-1 tracking-tight group-hover:text-red-600 transition-colors duration-200">
-                                    {{ $pizza->name }}</h3>
+                                    {{ $pizza->name }}
+                                </h3>
                                 <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">Prepared on a premium
                                     {{ strtolower($pizza->dough->name) }} canvas, spread with artisanal
-                                    {{ strtolower($pizza->sauce->name) }}, and loaded with fresh toppings.</p>
+                                    {{ strtolower($pizza->sauce->name) }}, and loaded with fresh toppings.
+                                </p>
                                 <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
                                     <div class="flex flex-col"><span
                                             class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Regular
@@ -165,16 +175,20 @@
                             class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             <div
                                 class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🍕</span>
+                                <img src="{{ asset('images/' . $pizza->name . '.webp') }}" alt="{{ $pizza->name }}"
+                                    loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
                             </div>
                             <div class="p-6 flex flex-col grow">
                                 <h3
                                     class="text-lg font-black text-slate-900 mb-1 tracking-tight group-hover:text-red-600 transition-colors duration-200">
-                                    {{ $pizza->name }}</h3>
+                                    {{ $pizza->name }}
+                                </h3>
                                 <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">Prepared on a premium
                                     {{ strtolower($pizza->dough->name) }} canvas with fresh
-                                    {{ strtolower($pizza->sauce->name) }} and loads of premium toppings.</p>
+                                    {{ strtolower($pizza->sauce->name) }} and loads of premium toppings.
+                                </p>
                                 <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
                                     <div class="flex flex-col"><span
                                             class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Regular
@@ -191,37 +205,51 @@
                     @endforeach
                 </div>
             </div>
-            
+
             <!-- ========================================================================= -->
-<!-- NEW: CREATE YOUR OWN PIZZA MENU SELECTION LISTING CARD VIEW PANEL         -->
-<!-- ========================================================================= -->
-<div id="sec-custom-builder" class="menu-view-display-panel hidden space-y-4">
-    <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Unleash your inner chef. Choose your crust, mix artisanal sauces, and precisely map your favorite premium toppings.</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- The Master Custom Builder Trigger Card Listing -->
-        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-b from-white to-red-50/10">
-            <div class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                <span class="text-5xl transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">👨‍🍳</span>
-                <div class="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </div>
-            <div class="p-6 flex flex-col grow">
-                <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight group-hover:text-red-600 transition-colors duration-200 uppercase">The Master Chef Canvas</h3>
-                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">100% customized wood-fired creation. Control the dough base, layer multi-sauce blends, tweak cooking levels, and partition toppings on different sides.</p>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
-                    <div class="flex flex-col">
-                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Starting From</span>
-                        <span class="text-2xl font-black text-slate-900">₹110</span>
+            <!-- NEW: CREATE YOUR OWN PIZZA MENU SELECTION LISTING CARD VIEW PANEL         -->
+            <!-- ========================================================================= -->
+            <div id="sec-custom-builder" class="menu-view-display-panel hidden space-y-4">
+                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Unleash your inner chef. Choose your crust,
+                    mix artisanal sauces, and precisely map your favorite premium toppings.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+
+                    <!-- The Master Custom Builder Trigger Card Listing -->
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-b from-white to-red-50/10">
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/The Master Chef Canvas.webp') }}" alt="The Master Chef Canvas"
+                                loading="lazy" decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+
+                            <div
+                                class="absolute inset-0 bg-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3
+                                class="text-lg font-black text-slate-900 mb-1 tracking-tight group-hover:text-red-600 transition-colors duration-200 uppercase">
+                                The Master Chef Canvas</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">100% customized wood-fired creation.
+                                Control the dough base, layer multi-sauce blends, tweak cooking levels, and partition
+                                toppings on different sides.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
+                                <div class="flex flex-col">
+                                    <span class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Starting
+                                        From</span>
+                                    <span class="text-2xl font-black text-slate-900">₹110</span>
+                                </div>
+                                <button onclick="public_function_openCustomPizzaBuilderModal()"
+                                    class="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-200 shadow-md shadow-red-600/10 cursor-pointer transform active:scale-95">
+                                    Design Pizza ⚙️
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <button onclick="public_function_openCustomPizzaBuilderModal()" class="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-200 shadow-md shadow-red-600/10 cursor-pointer transform active:scale-95">
-                        Design Pizza ⚙️
-                    </button>
+
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
 
             <!-- 4. SIDES MENU TAB PANEL -->
             <div id="sec-sides" class="menu-view-display-panel hidden space-y-4">
@@ -229,240 +257,269 @@
                     bread crusts to complete your slice.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($sides as $side)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🥖</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $side->name }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6">Freshly baked hot savory appetizers
-                                    constructed on site daily.</p>
-                                <<div id="counter-wrapper-Sides-{{ Str::slug($side->name) }}" class="flex items-center justify-end w-full">
-    <button onclick="public_function_addDirectItemToBasket('{{ $side->name }}', '{{ $side->base_price_inr }}', 'Sides')" 
-            class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
-            Add To Basket 🛒
-    </button>
-</div>
+                                class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                                <div
+                                    class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                                    <img src="{{ asset('images/' . $side->name . '.webp') }}" alt="{{ $side->name }}" loading="lazy"
+                                        decoding="async"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                                </div>
+                                <div class="p-6 flex flex-col grow">
+                                    <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $side->name }}</h3>
+                                    <p class="text-slate-500 text-xs leading-relaxed mb-6">Freshly baked hot savory appetizers
+                                        constructed on site daily.</p>
+                                    <<div id="counter-wrapper-Sides-{{ Str::slug($side->name) }}"
+                                        class="flex items-center justify-end w-full">
+                                        <button
+                                            onclick="public_function_addDirectItemToBasket('{{ $side->name }}', '{{ $side->base_price_inr }}', 'Sides')"
+                                            class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
+                                            Add To Basket 🛒
+                                        </button>
+                                </div>
 
 
                             </div>
                         </div>
                     @endforeach
-                </div>
             </div>
-            <!-- 5. COLD DRINKS MENU TAB PANEL -->
-            <div id="sec-drinks" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Ice-cold refreshments, fizzy sodas, and
-                    cooling local mint mojitos.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach($drinks as $drink)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🥤</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $drink->name }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6">Chilled carbonated beverages and custom
-                                    refreshing local fruit blenders.</p>
-                                <div id="counter-wrapper-ColdDrinks-{{ Str::slug($drink->name) }}" class="flex items-center justify-end w-full">
-    <button onclick="public_function_addDirectItemToBasket('{{ $drink->name }}', '{{ $drink->base_price_inr }}', 'Cold Drinks')" 
-            class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
-            Add To Basket 🛒
-    </button>
-</div>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- 6. DESSERTS MENU TAB PANEL -->
-            <div id="sec-desserts" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Warm molten chocolate centers and rich
-                    premium ice cream scoops.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    @foreach($desserts as $dessert)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span
-                                    class="text-4xl transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">🍨</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $dessert->name }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6">Artisanal rich confectionery puddings and
-                                    gourmet dessert options.</p>
-                                <div id="counter-wrapper-Desserts-{{ Str::slug($dessert->name) }}" class="flex items-center justify-end w-full">
-    <button onclick="public_function_addDirectItemToBasket('{{ $dessert->name }}', '{{ $dessert->base_price_inr }}', 'Desserts')" 
-            class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
-            Add To Basket 🛒
-    </button>
-</div>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <!-- 7. COMBO MEALS DISPLAY TAB PANEL -->
-            <div id="deal-combo" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Curated box sets combining pizzas, sides,
-                    and sips for maximum savings.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    @foreach($deals->get('Combo Meals', []) as $deal)
-                        <div
-                            class="bg-amber-50/40 rounded-3xl border-2 border-amber-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
-                            @if($deal->is_members_only)<span
-                                class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
-                            Club Only</span>@endif
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span class="text-4xl transform group-hover:scale-110 transition-transform">⭐</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                                <div id="counter-wrapper-ComboBundle-{{ Str::slug($deal->title) }}" class="flex items-center justify-between w-full pt-4 border-t border-amber-200 mt-auto">
-    <span class="text-3xl font-black text-slate-900">₹{{ $deal->combo_price }}</span>
-    <button onclick="evaluateComboMealClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->combo_price }}')" 
-            class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs px-5 py-3 rounded-xl shadow-md uppercase transition-all tracking-wider transform active:scale-95 cursor-pointer">
-            Claim Bundle
-    </button>
-</div>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <!-- 8. DAILY DEALS DISPLAY TAB PANEL -->
-            <div id="deal-daily" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Flash discount values and hot hours to
-                    satisfy immediate hunger spikes.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    @foreach($deals->get('Daily', []) as $deal)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
-                            @if($deal->is_members_only)<span
-                                class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
-                            Club Only</span>@endif
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span class="text-4xl transform group-hover:scale-110 transition-transform">🎁</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                                <!--  CORRECT BUTTON ROW: -->
-<button onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')" 
-        class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
-        Apply Coupon
-</button>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- 9. WEEKLY DEALS DISPLAY TAB PANEL -->
-            <div id="deal-weekly" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Midweek madness solutions and weekend family
-                    gathering bundles.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    @foreach($deals->get('Weekly', []) as $deal)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
-                            @if($deal->is_members_only)<span
-                                class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
-                            Club Only</span>@endif
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span class="text-4xl transform group-hover:scale-110 transition-transform">🎁</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                                <!--  CORRECT BUTTON ROW: -->
-<button onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')" 
-        class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
-        Apply Coupon
-</button>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- 10. MONTHLY DEALS DISPLAY TAB PANEL -->
-            <div id="deal-monthly" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Payday mega-savers and massive corporate
-                    event showstopper values.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    @foreach($deals->get('Monthly', []) as $deal)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
-                            @if($deal->is_members_only)<span
-                                class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
-                            Club Only</span>@endif
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span class="text-4xl transform group-hover:scale-110 transition-transform">🎁</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                                <!--  CORRECT BUTTON ROW: -->
-<button onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')" 
-        class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
-        Apply Coupon
-</button>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <!-- 11. SEASONAL DEALS DISPLAY TAB PANEL -->
-            <div id="deal-seasonal" class="menu-view-display-panel hidden space-y-4">
-                <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Limited-time festival celebrations and rich
-                    weather-inspired special culinary boxes.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    @foreach($deals->get('Seasonal', []) as $deal)
-                        <div
-                            class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
-                            @if($deal->is_members_only)<span
-                                class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
-                            Club Only</span>@endif
-                            <div
-                                class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
-                                <span class="text-4xl transform group-hover:scale-110 transition-transform">🍁</span>
-                            </div>
-                            <div class="p-6 flex flex-col grow">
-                                <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
-                                <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                                <!--  CORRECT BUTTON ROW: -->
-<button onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')" 
-        class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
-        Apply Coupon
-</button>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
         </div>
+        <!-- 5. COLD DRINKS MENU TAB PANEL -->
+        <div id="sec-drinks" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Ice-cold refreshments, fizzy sodas, and
+                cooling local mint mojitos.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($drinks as $drink)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $drink->name . '.webp') }}" alt="{{ $drink->name }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $drink->name }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Chilled carbonated beverages and custom
+                                refreshing local fruit blenders.</p>
+                            <div id="counter-wrapper-ColdDrinks-{{ Str::slug($drink->name) }}"
+                                class="flex items-center justify-end w-full">
+                                <button
+                                    onclick="public_function_addDirectItemToBasket('{{ $drink->name }}', '{{ $drink->base_price_inr }}', 'Cold Drinks')"
+                                    class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
+                                    Add To Basket 🛒
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- 6. DESSERTS MENU TAB PANEL -->
+        <div id="sec-desserts" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Warm molten chocolate centers and rich
+                premium ice cream scoops.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($desserts as $dessert)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $dessert->name . '.webp') }}" alt="{{ $dessert->name }}"
+                                loading="lazy" decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="text-lg font-black text-slate-900 mb-1 tracking-tight">{{ $dessert->name }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6">Artisanal rich confectionery puddings and
+                                gourmet dessert options.</p>
+                            <div id="counter-wrapper-Desserts-{{ Str::slug($dessert->name) }}"
+                                class="flex items-center justify-end w-full">
+                                <button
+                                    onclick="public_function_addDirectItemToBasket('{{ $dessert->name }}', '{{ $dessert->base_price_inr }}', 'Desserts')"
+                                    class="bg-red-600 hover:bg-red-700 text-white font-black text-[10px] uppercase tracking-wider px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer transform active:scale-95">
+                                    Add To Basket 🛒
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <!-- 7. COMBO MEALS DISPLAY TAB PANEL -->
+        <div id="deal-combo" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Curated box sets combining pizzas, sides,
+                and sips for maximum savings.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                @foreach($deals->get('Combo Meals', []) as $deal)
+                    <div
+                        class="bg-amber-50/40 rounded-3xl border-2 border-amber-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
+                        @if($deal->is_members_only)<span
+                            class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
+                        Club Only</span>@endif
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $deal->title . '.webp') }}" alt="{{ $deal->title }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
+                            <div id="counter-wrapper-ComboBundle-{{ Str::slug($deal->title) }}"
+                                class="flex items-center justify-between w-full pt-4 border-t border-amber-200 mt-auto">
+                                <span class="text-3xl font-black text-slate-900">₹{{ $deal->combo_price }}</span>
+                                <button
+                                    onclick="evaluateComboMealClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->combo_price }}')"
+                                    class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs px-5 py-3 rounded-xl shadow-md uppercase transition-all tracking-wider transform active:scale-95 cursor-pointer">
+                                    Claim Bundle
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <!-- 8. DAILY DEALS DISPLAY TAB PANEL -->
+        <div id="deal-daily" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Flash discount values and hot hours to
+                satisfy immediate hunger spikes.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                @foreach($deals->get('Daily', []) as $deal)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
+                        @if($deal->is_members_only)<span
+                            class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
+                        Club Only</span>@endif
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $deal->title . '.webp') }}" alt="{{ $deal->title }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
+                            <!--  CORRECT BUTTON ROW: -->
+                            <button
+                                onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
+                                Apply Coupon
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- 9. WEEKLY DEALS DISPLAY TAB PANEL -->
+        <div id="deal-weekly" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Midweek madness solutions and weekend family
+                gathering bundles.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                @foreach($deals->get('Weekly', []) as $deal)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
+                        @if($deal->is_members_only)<span
+                            class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
+                        Club Only</span>@endif
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $deal->title . '.webp') }}" alt="{{ $deal->title }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
+                            <!--  CORRECT BUTTON ROW: -->
+                            <button
+                                onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
+                                Apply Coupon
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- 10. MONTHLY DEALS DISPLAY TAB PANEL -->
+        <div id="deal-monthly" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Payday mega-savers and massive corporate
+                event showstopper values.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                @foreach($deals->get('Monthly', []) as $deal)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
+                        @if($deal->is_members_only)<span
+                            class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
+                        Club Only</span>@endif
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $deal->title . '.webp') }}" alt="{{ $deal->title }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
+                            <!--  CORRECT BUTTON ROW: -->
+                            <button
+                                onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
+                                Apply Coupon
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <!-- 11. SEASONAL DEALS DISPLAY TAB PANEL -->
+        <div id="deal-seasonal" class="menu-view-display-panel hidden space-y-4">
+            <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Limited-time festival celebrations and rich
+                weather-inspired special culinary boxes.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                @foreach($deals->get('Seasonal', []) as $deal)
+                    <div
+                        class="bg-white rounded-3xl border border-slate-200 overflow-hidden flex flex-col group hover:shadow-xl transition-all duration-300 relative">
+                        @if($deal->is_members_only)<span
+                            class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-[9px] font-black uppercase px-2 py-1 rounded-md z-10">🔒
+                        Club Only</span>@endif
+                        <div
+                            class="bg-slate-950 h-44 flex items-center justify-center relative overflow-hidden shrink-0 select-none">
+                            <img src="{{ asset('images/' . $deal->title . '.webp') }}" alt="{{ $deal->title }}" loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105">
+                        </div>
+                        <div class="p-6 flex flex-col grow">
+                            <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
+                            <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
+                            <!--  CORRECT BUTTON ROW: -->
+                            <button
+                                onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
+                                class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
+                                Apply Coupon
+                            </button>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+    </div>
     </div>
 
     <!-- ========================================================================= -->
