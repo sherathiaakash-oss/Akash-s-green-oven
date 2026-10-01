@@ -63,10 +63,7 @@
                         <textarea name="address" rows="3" required placeholder="Enter full building name, street details, and landmark in Rajkot..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-800 text-xs focus:ring-2 focus:ring-red-500 focus:bg-white transition-all resize-none leading-relaxed">{{ Auth::user()->address ?? '' }}</textarea>
                         <div id="status_dashboard_address" class="text-[10px] font-bold mt-1.5 hidden"></div>
                     </div>
-
-                    <!-- Async Status Feedback Alert Line -->
                     <div id="lblDetailsFormFeedbackMsg" class="text-[10px] font-bold py-2.5 px-3 rounded-lg border hidden select-none"></div>
-
                     <button type="submit" id="btnSyncDetailsSubmit" class="w-full bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-wider text-xs py-3.5 rounded-xl shadow-lg shadow-red-600/10 cursor-pointer text-center transition-all transform active:scale-98">
                         Save Profile Updates
                     </button>
@@ -156,28 +153,21 @@
     </div>
 </div>
 <script>
-        // --- REAL-TIME LIVE DASHBOARD EMAIL FIELD INTERCEPTOR VALIDATOR ---
     const dshEmailField = document.getElementById('dashboardEmailField');
     const dshEmailMsg = document.getElementById('valMsgEmailFeedback');
     const dshSubmitBtn = document.getElementById('btnSyncDetailsSubmit');
-
-    // Cache the initial page load value to bypass database lookups if unchanged
     const dshOriginalEmail = dshEmailField.value.trim();
 
     dshEmailField.addEventListener('input', async function() {
         const emailValue = this.value.trim();
-        
-        // Strict Standard Email RFC Format Pattern Matching Expression
         const emailPatternRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Condition A: If input text perfectly matches current session state, clear flags and unlock
         if (emailValue === dshOriginalEmail) {
             dshEmailMsg.classList.add('hidden');
             dshSubmitBtn.removeAttribute('disabled');
             return;
         }
 
-        // Condition B: Clear container if string box gets wiped out completely
         if (emailValue.length === 0) {
             dshEmailMsg.classList.remove('hidden');
             dshEmailMsg.className = "text-[10px] font-bold mt-1.5 text-red-600 animate-pulse";
@@ -186,7 +176,6 @@
             return;
         }
 
-        // Condition C: Format Checking Constraint Valve
         if (!emailPatternRegex.test(emailValue)) {
             dshEmailMsg.classList.remove('hidden');
             dshEmailMsg.className = "text-[10px] font-bold mt-1.5 text-red-600 animate-pulse";
@@ -195,7 +184,6 @@
             return;
         }
 
-        // Condition D: Hit XAMPP Database to inspect if value is already claimed by another row
         try {
             const uniqueResponse = await fetch('/check-field-uniqueness', {
                 method: 'POST',
@@ -210,12 +198,10 @@
             dshEmailMsg.classList.remove('hidden');
             
             if (dataResult.available) {
-                // Unlock form action controls and append high-impact green confirmation status text
                 dshEmailMsg.className = "text-[10px] font-bold mt-1.5 text-emerald-600";
                 dshEmailMsg.innerText = "✓ Available: This email address is verified and available for updates.";
                 dshSubmitBtn.removeAttribute('disabled');
             } else {
-                // Lock form execution layers and display bold red collision alert prompts
                 dshEmailMsg.className = "text-[10px] font-bold mt-1.5 text-red-600 animate-pulse";
                 dshEmailMsg.innerText = "✕ Claimed Error: This specific email address is already bound to another active Club Account.";
                 dshSubmitBtn.setAttribute('disabled', 'true');
@@ -225,7 +211,6 @@
         }
     });
 
-    // --- JAVASCRIPT SECTION: DETAILED COLUMN INPUT EDIT AJAX HANDLING ENGINE ---
     document.getElementById('frmDashboardDetailsSync').addEventListener('submit', async function(e) {
         e.preventDefault();
         
@@ -274,13 +259,11 @@
         }
     });
 
-    // --- REAL-TIME LIVE VALIDATION & ASYNC UNIQUENESS LOOKUPS LOOP ---
     const emailField = document.getElementById('dashboardEmailField');
     const phoneField = document.getElementById('dashboardPhoneField');
     const emailMsg = document.getElementById('valMsgEmailFeedback');
     const phoneMsg = document.getElementById('valMsgPhoneFeedback');
     const syncSubmitBtn = document.getElementById('btnSyncDetailsSubmit');
-
     const originalEmail = emailField.value.trim();
     const originalPhone = phoneField.value.trim();
     document.getElementById('dashboardAddressField').addEventListener('input', function() {
@@ -361,7 +344,7 @@
             const response = await fetch('/check-field-uniqueness', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value },
-                body: JSON.stringify({ field: 'mobile', value: val }) // Updated matching field to column: mobile
+                body: JSON.stringify({ field: 'mobile', value: val }) 
             });
             const data = await response.json();
 
@@ -378,7 +361,6 @@
         } catch (e) { console.error(e); }
     });
 
-    // --- CLIENT-SIDE TRANSACTION CARDS ADVANCED SORTING VALVE MECHANICS ---
     function public_function_executeHistorySorting() {
         const sortModeToken = document.getElementById('dropdownOrderSortValve').value;
         const timelineCanvas = document.getElementById('targetOrdersTimelineContainer');
