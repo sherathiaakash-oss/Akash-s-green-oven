@@ -2,17 +2,12 @@
 
 @section('content')
     <div class="min-h-screen py-16 px-4 bg-slate-900 overflow-hidden relative flex items-center justify-center">
-        <!-- Ambient Backdrop Underlays -->
         <div
             class="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem]">
         </div>
         <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <!-- Master Form Card Container Wrapper -->
         <div
             class="relative bg-white rounded-3xl shadow-2xl border border-slate-100 w-full max-w-2xl overflow-hidden transform transition-all duration-300 z-10">
-
-            <!-- Top Branding Stripe Header Banner -->
             <div
                 class="bg-slate-950 px-8 py-8 border-b-4 border-red-600 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex flex-col">
@@ -26,12 +21,8 @@
                     <span class="text-[10px] font-bold text-slate-300">Authentic Slices</span>
                 </div>
             </div>
-
-            <!-- Form Content Body Wrapper -->
             <form id="regClubForm" action="/register-membership" method="POST" class="p-8 sm:p-10 space-y-6">
                 @csrf
-
-                <!-- Grid Row 1: Mandatory Full Name Slots Split Columns -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">First Name
@@ -52,7 +43,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Grid Row 2: Unique User ID Slot -->
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Unique User ID
                         <span class="text-red-500">*</span></label>
@@ -96,7 +86,6 @@
                         <div id="status_confirm_email" class="text-[10px] font-bold mt-1.5 hidden"></div>
                     </div>
                 </div>
-                <!-- Grid Row 5: Mobile Number Field Slot -->
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Mobile Phone
                         Number</label>
@@ -107,8 +96,6 @@
                     </div>
                     <div id="status_mobile" class="text-[10px] font-bold mt-1.5 hidden"></div>
                 </div>
-
-                <!-- MEMBER REGISTRATION MANDATORY TEXTAREA ADDRESS INPUT BLOCK WITH LIVE STATUS LOG PORTS -->
                 <div class="block w-full">
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Mandatory
                         Delivery Address <span class="text-red-500">*</span></label>
@@ -118,14 +105,11 @@
                             placeholder="Enter your full building name, house number, street details, and landmark in Rajkot..."
                             class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-sm block relative z-0 resize-none leading-relaxed">{{ old('address') }}</textarea>
                     </div>
-                    <!-- Live Client-side Validation Feedback Message Slot Box -->
                     <div id="status_address" class="text-[10px] font-bold mt-1.5 hidden"></div>
                     @error('address')
                         <span class="text-[10px] font-bold mt-1.5 text-red-600 block">✕ {{ $message }}</span>
                     @enderror
                 </div>
-
-                <!-- Grid Row 6: Passwords Verification Split Columns Group -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Secure
@@ -150,8 +134,6 @@
                         <div id="status_confirm_password" class="text-[10px] font-bold mt-1.5 hidden"></div>
                     </div>
                 </div>
-
-                <!-- Bottom Action Controls Hub -->
                 <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p class="text-xs font-bold text-slate-500 text-center sm:text-left leading-normal">
                         Already registered?
@@ -169,7 +151,6 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // UI DOM Input References
             const form = document.getElementById("regClubForm");
             const userIdInput = document.getElementById("reg_user_id");
             const emailInput = document.getElementById("reg_email");
@@ -179,8 +160,6 @@
             const passwordInput = document.getElementById("reg_password");
             const confirmPasswordInput = document.getElementById("reg_confirm_password");
             const submitBtn = document.getElementById("regSubmitBtn");
-
-            // UI Feedback Text Elements
             const statusUserId = document.getElementById("status_user_id");
             const statusEmail = document.getElementById("status_email");
             const statusConfirmEmail = document.getElementById("status_confirm_email");
@@ -189,24 +168,15 @@
             const statusPasswordLength = document.getElementById("status_password_length");
             const statusConfirmPassword = document.getElementById("status_confirm_password");
 
-            // Unified Function to manage submit button state based on full validation
-            //  REPLACE WITH THIS CORRECT DEFINITION:
             function checkFormValidity() {
-                // Safely look up input node fields directly by checking their input element references
                 const firstNameInput = form.querySelector('input[name="first_name"]');
                 const lastNameInput = form.querySelector('input[name="last_name"]');
-
                 const isFirstNameFilled = firstNameInput && firstNameInput.value.trim().length > 0;
                 const isLastNameFilled = lastNameInput && lastNameInput.value.trim().length > 0;
-
                 const userIdFilledAndValid = userIdInput.value.trim().length >= 3 && !statusUserId.classList.contains('text-red-600') && statusUserId.innerText.includes('✓');
                 const passwordLengthValid = passwordInput.value.length >= 6;
                 const passwordsMatch = passwordInput.value === confirmPasswordInput.value && passwordLengthValid;
-
-                // Enforce address validation metric constraints directly inside button states checklist
                 const isAddressValid = addressInput.value.trim().length >= 10 && !statusAddress.classList.contains('text-red-600');
-
-                // Flexible identity constraint rule verification
                 const hasEmail = emailInput.value.trim().length > 0;
                 const hasMobile = mobileInput.value.trim().length > 0;
                 const dynamicContactProvided = hasEmail || hasMobile;
@@ -228,7 +198,6 @@
                 }
             }
 
-            // Helper function to handle async unique check calls directly into XAMPP
             async function verifyUniqueness(field, value, outputElement) {
                 if (value.trim().length === 0) {
                     outputElement.classList.add("hidden");
@@ -260,7 +229,6 @@
                     return false;
                 }
             }
-            // --- LIVE ADAPTIVE TEXTAREA ADDRESS ACCORDANCE VALIDATOR ---
             addressInput.addEventListener("input", function () {
                 const textValue = addressInput.value.trim();
                 statusAddress.classList.remove("hidden");
@@ -277,7 +245,6 @@
                 checkFormValidity();
             });
 
-            // --- ASYNC DATABASE CHECK HANDLERS ---
             userIdInput.addEventListener("input", async () => {
                 if (userIdInput.value.trim().length < 3) {
                     statusUserId.classList.remove("hidden");
@@ -334,7 +301,6 @@
                 checkFormValidity();
             });
 
-            // --- CLIENT-SIDE MATCH CHECK HANDLERS ---
             confirmEmailInput.addEventListener("input", () => {
                 if (emailInput.value.trim().length === 0) {
                     statusConfirmEmail.classList.add("hidden");
@@ -386,7 +352,6 @@
                 checkFormValidity();
             });
 
-            // Run verification on casual field changes
             document.querySelectorAll('input, textarea').forEach(input => {
                 input.addEventListener('change', checkFormValidity);
             });
