@@ -16,10 +16,8 @@
             <a href="/" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-black uppercase tracking-wider px-5 py-3 rounded-xl transition-all shadow-md text-center">➔ Return To Kitchen Menu</a>
         </div>
 
-        <!-- 2-COLUMN MODULAR DESIGN INTERFACE CONTAINER -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
-            <!-- LEFT PANEL: SECTION 1 - EDIT PERSONAL DETAILS LEDGER SHEET -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 space-y-6">
                 <div class="border-b border-slate-100 pb-3 select-none">
                     <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Section One</span>
@@ -28,7 +26,6 @@
 
                 <form id="frmDashboardDetailsSync" class="space-y-4">
                     @csrf
-                    <!-- User ID Display Row (Strictly Static & Locked) -->
                     <div class="select-none">
                         <label class="block text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Database User ID (Locked)</label>
                         <div class="bg-slate-100 border border-slate-200 rounded-xl px-4 py-3 font-mono text-xs font-bold text-slate-500 shadow-inner">
@@ -36,7 +33,6 @@
                         </div>
                     </div>
 
-                    <!-- Editable Fields Rows -->
                     <div>
                         <label class="block text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1.5">First Name <span class="text-red-500">*</span></label>
                         <input type="text" name="first_name" value="{{ Auth::user()->first_name }}" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 font-bold text-slate-800 text-xs focus:ring-2 focus:ring-red-500 focus:bg-white transition-all">
@@ -69,7 +65,6 @@
                     </button>
                 </form>
             </div>
-            <!-- RIGHT PANEL: SECTION 2 - TRANSACTION TRACKING DECKS & SMART SORTING CONTROLLER -->
             <div class="lg:grid lg:col-span-2 space-y-6">
                 
                 <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none">
@@ -77,8 +72,6 @@
                         <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block">Section Two</span>
                         <h3 class="text-base font-black text-slate-900 uppercase tracking-tight mt-0.5">Order Tracking Ledger</h3>
                     </div>
-
-                    <!-- IMMERSIVE INTERACTIVE DROPDOWN SORTING CONTROL MATRIX -->
                     <div class="flex items-center gap-2">
                         <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Sort Matrix:</span>
                         <select id="dropdownOrderSortValve" onchange="public_function_executeHistorySorting()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-black text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 cursor-pointer shadow-sm">
@@ -90,7 +83,6 @@
                     </div>
                 </div>
 
-                <!-- DYNAMIC ORDERS TIMELINE HISTORY STACK BLOCK AREA -->
                 <div id="targetOrdersTimelineContainer" class="space-y-4">
                     @forelse($orderHistoryCollection as $order)
                         <div class="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-md transition-all duration-200 historical-order-card"
@@ -106,8 +98,6 @@
                                     </span>
                                     <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wide ml-1">📅 {{ date('d-M-Y', strtotime($order->order_date)) }} at {{ date('h:i A', strtotime($order->order_time)) }}</span>
                                 </div>
-
-                                <!-- Granular Item Row Columns Rendering Matrix -->
                                 <div class="divide-y divide-slate-100 font-medium text-slate-700 text-xs">
                                     @foreach($order->items as $item)
                                         <div class="py-2 flex items-center justify-between gap-4">
@@ -124,7 +114,6 @@
                                 </div>
                             </div>
 
-                            <!-- Right Side Pricing Block Totals Column -->
                             <div class="md:text-right shrink-0 flex flex-col justify-center select-none md:border-l md:border-slate-100 md:pl-6 min-w-[8rem] gap-1">
                                 <div class="flex items-center justify-between md:justify-end gap-2 text-xs font-bold text-slate-400">
                                     <span>Subtotal:</span><span>₹{{ $order->basket_total }}</span>
