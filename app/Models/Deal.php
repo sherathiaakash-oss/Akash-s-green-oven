@@ -6,18 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Deal extends Model
 {
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'deals';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'title',
         'description',
