@@ -11,18 +11,13 @@ use Carbon\Carbon;
 
 class PizzeriaCheckoutController extends Controller
 {
-    /**
-     * Intercept cart data, generate a unique 5-digit order number, 
-     * and save to tables ONLY if the user is a registered member.
-     */
+    
     public function processSecureCheckout(Request $request)
     {
-        // 1. ALWAYS GENERATE A UNIQUE 5-DIGIT ALPHANUMERIC UPPERCASE TRACKING CODE
         do {
             $generatedOrderNo = strtoupper(Str::random(5));
         } while (Order::where('order_no', $generatedOrderNo)->exists());
 
-        // 2. CONDITION CHECK: IF GUEST OR UNLOGGED, BYPASS DATABASE STORAGE AND RETURN THE CODE
         if (!Auth::check() || Auth::user()->is_guest) {
             return response()->json([
                 'success' => true,
@@ -31,7 +26,6 @@ class PizzeriaCheckoutController extends Controller
             ]);
         }
 
-        // 3. MEMBER EXECUTION STREAM: PERSIST ALL TRANSACTION DATA TO DATABASE
         $basketItems = $request->input('basket_items', []);
         if (empty($basketItems)) {
             return response()->json([
@@ -47,7 +41,6 @@ class PizzeriaCheckoutController extends Controller
         $currentTimestamp = Carbon::now('Asia/Kolkata');
 
         try {
-            // Write Parent Summary Sheet Ledger (Kept lightweight and clean!)
             Order::create([
                 'user_id'           => Auth::user()->user_id,
                 'order_no'          => $generatedOrderNo,
@@ -60,7 +53,6 @@ class PizzeriaCheckoutController extends Controller
                 'status'            => 'Received'
             ]);
 
-            // Write Individual Child Basket Line Rows
             foreach ($basketItems as $item) {
                 $customDetails = isset($item['category']) && $item['category'] === 'Custom Pizza Design' 
                     ? $item['sauce'] 
