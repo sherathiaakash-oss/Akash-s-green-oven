@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- High-Impact Hero Dashboard Banner -->
     <div class="relative bg-sky-900 overflow-hidden py-16 md:py-24 px-4 sm:px-6 text-center border-b border-slate-950">
         <div
             class="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[4rem_4rem]">
@@ -9,8 +8,6 @@
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none">
         </div>
-
-        <!-- UPDATED: Added a solid translucent backdrop container wrapper card to protect the text field lines -->
         <div
             class="relative max-w-2xl mx-auto text-center bg-sky-950/60 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-sky-800/30 shadow-xl max-w-2xl">
             <span
@@ -28,15 +25,11 @@
         </div>
     </div>
 
-    <!-- Main Core Menu Deck Section Boundary Wrapper -->
     <div id="pizzeria-menu-deck" class="bg-white min-h-screen relative z-10">
-
-        <!-- STICKY SUB-NAVIGATION DECK WITH AUTO-CENTERING & HIDDEN SCROLLBARS -->
         <div
             class="sticky top-[90px] z-50 bg-white border-b border-slate-200 shadow-md overflow-x-auto select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 h-16 bg-white">
 
-                <!-- Horizontal Interactive Navigation Button Cluster -->
                 <div id="tabMenuBarContainer"
                     class="flex items-center space-x-2 font-black text-xs uppercase tracking-wider overflow-x-auto py-2 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <button onclick="switchActiveMenuTab(this, 'cat-classics')"
@@ -82,9 +75,7 @@
             </div>
         </div>
 
-        <!-- Active Single-Tab View Workspace Grid Shell -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <!-- 1. CLASSICS MENU TAB PANEL -->
             <div id="cat-classics" class="menu-view-display-panel space-y-4">
                 <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Freshly assembled and baked in our
                     stone-hearth oven upon order submission.</p>
@@ -124,8 +115,6 @@
                     @endforeach
                 </div>
             </div>
-
-            <!-- 2. BOLD FLAVORS MENU TAB PANEL -->
             <div id="cat-bold" class="menu-view-display-panel hidden space-y-4">
                 <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Intense spices, fiery peri-peri drops, and
                     rich charcoal fusions.</p>
@@ -165,7 +154,6 @@
                     @endforeach
                 </div>
             </div>
-            <!-- 3. PREMIUM RANGE MENU TAB PANEL -->
             <div id="cat-premium" class="menu-view-display-panel hidden space-y-4">
                 <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Artisanal pesto drizzles, gourmet feta
                     crumbles, and exotic wild mushrooms.</p>
@@ -205,16 +193,10 @@
                     @endforeach
                 </div>
             </div>
-
-            <!-- ========================================================================= -->
-            <!-- NEW: CREATE YOUR OWN PIZZA MENU SELECTION LISTING CARD VIEW PANEL         -->
-            <!-- ========================================================================= -->
             <div id="sec-custom-builder" class="menu-view-display-panel hidden space-y-4">
                 <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Unleash your inner chef. Choose your crust,
                     mix artisanal sauces, and precisely map your favorite premium toppings.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-
-                    <!-- The Master Custom Builder Trigger Card Listing -->
                     <div
                         class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-gradient-to-b from-white to-red-50/10">
                         <div
@@ -250,8 +232,6 @@
 
                 </div>
             </div>
-
-            <!-- 4. SIDES MENU TAB PANEL -->
             <div id="sec-sides" class="menu-view-display-panel hidden space-y-4">
                 <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Crispy baked appetizers and golden garlic
                     bread crusts to complete your slice.</p>
@@ -285,7 +265,6 @@
                     @endforeach
             </div>
         </div>
-        <!-- 5. COLD DRINKS MENU TAB PANEL -->
         <div id="sec-drinks" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Ice-cold refreshments, fizzy sodas, and
                 cooling local mint mojitos.</p>
@@ -318,8 +297,6 @@
                 @endforeach
             </div>
         </div>
-
-        <!-- 6. DESSERTS MENU TAB PANEL -->
         <div id="sec-desserts" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Warm molten chocolate centers and rich
                 premium ice cream scoops.</p>
@@ -351,7 +328,6 @@
                 @endforeach
             </div>
         </div>
-        <!-- 7. COMBO MEALS DISPLAY TAB PANEL -->
         <div id="deal-combo" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Curated box sets combining pizzas, sides,
                 and sips for maximum savings.</p>
@@ -387,7 +363,6 @@
                 @endforeach
             </div>
         </div>
-        <!-- 8. DAILY DEALS DISPLAY TAB PANEL -->
         <div id="deal-daily" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Flash discount values and hot hours to
                 satisfy immediate hunger spikes.</p>
@@ -408,7 +383,6 @@
                         <div class="p-6 flex flex-col grow">
                             <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
                             <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                            <!--  CORRECT BUTTON ROW: -->
                             <button
                                 onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
                                 class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
@@ -420,8 +394,6 @@
                 @endforeach
             </div>
         </div>
-
-        <!-- 9. WEEKLY DEALS DISPLAY TAB PANEL -->
         <div id="deal-weekly" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Midweek madness solutions and weekend family
                 gathering bundles.</p>
@@ -441,7 +413,6 @@
                         <div class="p-6 flex flex-col grow">
                             <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
                             <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                            <!--  CORRECT BUTTON ROW: -->
                             <button
                                 onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
                                 class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
@@ -453,8 +424,6 @@
                 @endforeach
             </div>
         </div>
-
-        <!-- 10. MONTHLY DEALS DISPLAY TAB PANEL -->
         <div id="deal-monthly" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Payday mega-savers and massive corporate
                 event showstopper values.</p>
@@ -474,7 +443,6 @@
                         <div class="p-6 flex flex-col grow">
                             <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
                             <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                            <!--  CORRECT BUTTON ROW: -->
                             <button
                                 onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
                                 class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
@@ -486,7 +454,6 @@
                 @endforeach
             </div>
         </div>
-        <!-- 11. SEASONAL DEALS DISPLAY TAB PANEL -->
         <div id="deal-seasonal" class="menu-view-display-panel hidden space-y-4">
             <p class="text-slate-500 text-sm font-bold tracking-tight mb-8">Limited-time festival celebrations and rich
                 weather-inspired special culinary boxes.</p>
@@ -506,7 +473,6 @@
                         <div class="p-6 flex flex-col grow">
                             <h3 class="font-black text-slate-900 text-lg mb-1 tracking-tight">{{ $deal->title }}</h3>
                             <p class="text-slate-500 text-xs leading-relaxed mb-6 grow">{{ $deal->description }}</p>
-                            <!--  CORRECT BUTTON ROW: -->
                             <button
                                 onclick="evaluatePromoCouponClaim({{ $deal->is_members_only ? 'true' : 'false' }}, '{{ $deal->title }}', '{{ $deal->discount_type }}', '{{ $deal->discount_value }}')"
                                 class="w-full bg-red-600 hover:bg-red-700 text-white font-black text-xs py-3.5 rounded-xl uppercase shadow-md transition-all transform active:scale-95 cursor-pointer mt-auto">
@@ -518,25 +484,18 @@
                 @endforeach
             </div>
         </div>
-
     </div>
     </div>
-
-    <!-- ========================================================================= -->
-    <!-- SLIDING DRAWER ACCENT PIZZA CUSTOMIZER PANEL MODULE (MIDDLE POPUP STYLE)  -->
-    <!-- ========================================================================= -->
     <div id="customizerDrawer" onclick="closeCustomizer()"
         class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm transition-all duration-300 flex items-center justify-center p-4">
         <div onclick="event.stopPropagation()"
             class="w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden relative transform transition-transform duration-300 scale-95"
             id="drawerContentCard">
-
             <div class="p-6 bg-slate-900 text-white text-center border-b-4 border-red-600 select-none">
                 <h3 id="customizerPizzaName" class="text-xl font-black uppercase tracking-tight">Configure Pizza</h3>
                 <p id="customizerPizzaMeta" class="text-slate-400 text-[10px] uppercase font-bold tracking-wider mt-0.5">
                     Custom Stone-Hearth Prep</p>
             </div>
-
             <div class="p-6 max-h-[60vh] overflow-y-auto space-y-6 select-none">
                 <div>
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">1. Select
@@ -589,7 +548,6 @@
         const lblDough = document.getElementById('lblDoughInfo');
         const lblSauce = document.getElementById('lblSauceInfo');
         const lblCheese = document.getElementById('lblCheeseInfo');
-
         let activePizzaBaselinePrice = 0;
         let selectedMultiplierValue = 1.0;
         let selectedSizeNameString = 'Regular-10"';
@@ -643,7 +601,6 @@
         }
 
         function addConfiguredPizzaToBasket() {
-            // alert("Success! Added " + selectedSizeNameString + " " + pzName.innerText + " into your order selection basket.");
             closeCustomizer();
         }
     </script>
