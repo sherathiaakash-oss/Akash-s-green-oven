@@ -10,9 +10,6 @@ class OrderItem extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [
         'order_no',
         'item',
@@ -21,9 +18,6 @@ class OrderItem extends Model
         'total_of_individual_item'
     ];
 
-    /**
-     * Relationship: This item belongs explicitly to a parent tracking order.
-     */
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class, 'order_no', 'order_no');
