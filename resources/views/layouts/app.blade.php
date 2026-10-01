@@ -10,7 +10,6 @@
 
 <body class="bg-slate-50 text-slate-950 antialiased font-sans selection:bg-red-600 selection:text-white">
 
-    <!-- Top Live Ticker Ribbon -->
     <div
         class="bg-red-600 text-white text-xs font-bold py-2 px-4 text-center tracking-wider uppercase relative overflow-hidden shadow-sm">
         <div class="inline-flex items-center space-x-2">
@@ -23,13 +22,11 @@
         </div>
     </div>
 
-    <!-- Interactive Navigation Bar -->
     <nav
         class="bg-slate-900/95 backdrop-blur-md text-white shadow-xl sticky top-0 z-50 border-b-4 border-red-600 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between py-4 md:py-0 md:h-22 gap-4">
 
-                <!-- Brand Profile Section -->
                 <a href="/" class="flex items-center space-x-3 text-center md:text-left group select-none">
                     <div
                         class="bg-red-600 p-2.5 rounded-xl shadow-md transform rotate-3 group-hover:rotate-6 group-hover:scale-105 transition-all duration-300 shrink-0">
@@ -49,31 +46,22 @@
                     </div>
                 </a>
 
-                <!-- Navbar Hub Links (DEALS TEXT ITEM REQUISITION REMOVED PERMANENTLY) -->
                 <div
                     class="flex flex-wrap items-center justify-center gap-4 md:gap-6 font-black text-xs md:text-sm tracking-wide uppercase w-full md:w-auto">
                     <a href="/#pizzeria-menu-deck"
                         class="text-slate-200 hover:text-red-500 transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-red-500">Menu</a>
 
-                    <!-- ========================================================================= -->
-                    <!-- DYNAMIC PERSONALIZED AUTHENTICATION HEADER HUB LINK CONTROLS             -->
-                    <!-- ========================================================================= -->
                     @if(Auth::check())
-                        <!-- CASE A: SIGNED-IN REGISTERED PIZZERIA CLUB MEMBER OR FAST-CHECKOUT GUEST -->
                         <div class="flex items-center gap-4 relative">
-                            <!-- Premium Conditional Administrator Action Key Badge -->
                             @if(Auth::user()->is_admin)
                                 <a href="/kitchen-hub"
                                     class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-slate-950 px-3.5 py-1.5 rounded-xl font-black transition-all flex items-center gap-1.5 shadow-md shadow-orange-500/10 cursor-pointer text-xs md:text-sm tracking-wide uppercase select-none">
                                     👨‍🍳 Kitchen Hub
                                 </a>
                             @endif
-
-                            <!-- Personalized Profile Identifier Trigger Button -->
                             <button onclick="toggleProfileDropdownMenu(event)"
                                 class="font-black cursor-pointer flex items-center gap-1.5 transition-colors text-xs md:text-sm tracking-wide uppercase select-none">
                                 @if(Auth::user()->is_guest)
-                                    <!-- Dynamic text and icon format targeting active Guest database records -->
                                     {{-- REPLACE WITH THIS CORRECT FORMAT: --}}
                                     <span
                                         class="text-slate-300 hover:text-slate-200 flex items-center gap-1.5 select-none font-black tracking-wider text-xs md:text-sm uppercase">
@@ -82,7 +70,6 @@
                                     </span>
 
                                 @else
-                                    <!-- Dynamic text and icon format targeting premium Club Members -->
                                     <span class="text-amber-400 flex items-center gap-1.5 hover:text-amber-300">
                                         <span
                                             class="bg-amber-400/10 p-1.5 rounded-lg border border-amber-400/20 text-xs">⭐</span>
@@ -92,8 +79,6 @@
                                 <span class="text-[10px] text-slate-400 transition-transform duration-200"
                                     id="profileDropdownArrow">▼</span>
                             </button>
-
-                            <!-- FLOATING INTERACTIVE DROPDOWN MENU NODE -->
                             <div id="profileDropdownCard"
                                 class="hidden absolute right-0 top-14 w-48 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden z-50 animate-scale-up py-2">
                                 <div class="px-4 py-2 border-b border-slate-100 select-none">
@@ -108,8 +93,6 @@
                                                 Profile ➔</span>
                                         </a></span>
                                 </div>
-
-                                <!-- Core Logout Pipeline Submission Link Button Trigger -->
                                 <form id="memberLogoutForm" action="/logout" method="POST" class="block w-full">
                                     @csrf
                                     <button type="button" onclick="document.getElementById('memberLogoutForm').submit()"
@@ -121,7 +104,6 @@
                             </div>
                         </div>
                     @else
-                        <!-- CASE B: UNAUTHENTICATED ANONYMOUS PUBLIC STRANGER -->
                         <button onclick="openAuthModal()"
                             class="text-amber-400 hover:text-white transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-amber-400 font-black cursor-pointer flex items-center gap-1 text-xs md:text-sm tracking-wide uppercase select-none">
                             👤 Login / Join
@@ -134,19 +116,11 @@
                         <span id="globalBasketCounterBadge"
                             class="bg-slate-950 text-white text-xs px-2 py-0.5 rounded-lg font-black transition-all group-hover:bg-red-600">0</span>
                     </button>
-                    <!-- ========================================================================= -->
-                    <!-- SLIDING SIDE-DRAWER BASKET CONTAINER (SLIDES FROM RIGHT ACCENT EDGE)       -->
-                    <!-- ========================================================================= -->
-                    <!-- ========================================================================= -->
-                    <!-- FIXED BACKDROP OVERLAY & FULL-HEIGHT SIDE-DRAWER BASKET MATRIX            -->
-                    <!-- ========================================================================= -->
                     <div id="basketSideDrawer" onclick="toggleBasketDrawer(false)"
                         class="hidden fixed inset-0 w-screen h-screen z-50 bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 flex justify-end select-none opacity-0">
                         <div onclick="event.stopPropagation()"
                             class="w-full max-w-md bg-white h-screen shadow-2xl border-l border-slate-100 flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out"
                             id="basketContentCanvas">
-
-                            <!-- Drawer Header Banner Slot -->
                             <div
                                 class="p-6 bg-slate-900 text-white flex items-center justify-between border-b-4 border-blue-600">
                                 <div class="flex items-center gap-2">
@@ -156,8 +130,6 @@
                                 <button onclick="toggleBasketDrawer(false)"
                                     class="text-slate-400 hover:text-white font-black text-lg cursor-pointer transform active:scale-90">✕</button>
                             </div>
-
-                            <!-- Conditional Gamification Membership Prompt Ribbon -->
                             @if(Auth::check() && Auth::user()->is_guest)
                                 <div
                                     class="bg-gradient-to-r from-amber-500/10 to-orange-500/10 border-b border-amber-200 p-4 flex items-start gap-2.5">
@@ -174,27 +146,20 @@
                                     </div>
                                 </div>
                             @endif
-
-                            <!-- Core Scrollable Item Iteration Stack Slot -->
                             <div id="basketItemsContainerRow"
                                 class="p-6 overflow-y-auto space-y-4 grow flex flex-col justify-start">
-                                <!-- Dynamic JavaScript elements populate directly inside this frame matrix -->
                                 <div class="text-center py-12 text-slate-400 font-bold text-xs space-y-2 my-auto">
                                     <span class="text-3xl block">🍕</span>
                                     <span>Your basket is currently empty.<br>Add something delicious from the
                                         menu!</span>
                                 </div>
                             </div>
-
-                            <!-- Applied Promotion coupons visual summary box -->
                             <div id="basketAppliedOffersLedger"
                                 class="px-6 py-3 bg-slate-50 border-t border-slate-100 hidden flex flex-col gap-2">
                                 <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Active
                                     Discounts Applied</span>
                                 <div id="basketOffersTargetList" class="space-y-1.5"></div>
                             </div>
-
-                            <!-- Checkout calculation metrics table footer -->
                             <div class="p-6 border-t border-slate-100 bg-slate-50 space-y-4 mt-auto">
                                 <div class="space-y-2 text-xs font-bold text-slate-600">
                                     <div class="flex items-center justify-between"><span>Basket Subtotal</span><span
@@ -215,10 +180,6 @@
 
                         </div>
                     </div>
-
-                    <!-- ========================================================================= -->
-                    <!-- CUSTOM LOCKED PROMOTION REJECTION WARNING ALERT POPUP MODAL               -->
-                    <!-- ========================================================================= -->
                     <div id="clubWarningModal" onclick="closeClubWarningModal()"
                         class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
                         <div onclick="event.stopPropagation()"
@@ -252,19 +213,13 @@
             </div>
         </div>
     </nav>
-
-    <!-- Main Content Yield Anchor Node -->
     <main>
         @yield('content')
     </main>
-
-    <!-- UPGRADED PREMIUM MINIMAL FOOTER DASHBOARD -->
     <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t-4 border-slate-900 mt-20 font-medium">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
                 class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left border-b border-slate-900 pb-12 mb-8">
-
-                <!-- Brand Profile Summary -->
                 <div class="space-y-3">
                     <span class="text-xl font-black text-white tracking-tight uppercase">Akash's <span
                             class="text-red-500">Green Oven</span></span>
@@ -276,8 +231,6 @@
                     </div>
 
                 </div>
-
-                <!-- Contact & Support details -->
                 <div class="space-y-2 text-xs">
                     <h4 class="text-white font-black uppercase tracking-wider text-[10px] text-slate-500 mb-3">Hotline
                         Support</h4>
@@ -286,8 +239,6 @@
                     <p class="flex items-center justify-center md:justify-start gap-2"><span
                             class="text-red-500">✉️</span> support@akashsgreenoven.com</p>
                 </div>
-
-                <!-- Strategic Physical Address & Map Nodes -->
                 <div class="space-y-2 text-xs">
                     <h4 class="text-white font-black uppercase tracking-wider text-[10px] text-slate-500 mb-3">Stone
                         Hearth Oven Location</h4>
@@ -305,8 +256,6 @@
                 </div>
 
             </div>
-
-            <!-- Bottom Copyright Ribbon -->
             <div
                 class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs tracking-wide text-slate-600">
                 <p>&copy; {{ date('Y') }} Akash's Green Oven. Crafted for Rajkot.</p>
@@ -314,7 +263,6 @@
             </div>
         </div>
     </footer>
-    <!-- DYNAMIC UNIVERSAL AUTH POPUP MODAL WINDOW (CENTERED BACKDROP DISMISSAL SYSTEM) -->
     <div id="authModal" onclick="closeAuthModal()"
         class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-sm transition-all duration-300 flex items-center justify-center p-4 animate-fade-in">
         <div onclick="event.stopPropagation()"
@@ -334,14 +282,8 @@
                     <p id="modalDesc" class="text-slate-500 text-xs mt-1 font-medium leading-relaxed">Sign in with your
                         verified User ID to access saved delivery routes.</p>
                 </div>
-
-                <!-- ========================================== -->
-                <!-- FORM 1: VERIFIED MEMBER LOGIN HUB         -->
-                <!-- ========================================== -->
                 <form id="memberLoginForm" action="/login-member" method="POST" class="space-y-5 block w-full">
                     @csrf
-
-                    <!-- MEMBER USER ID INPUT FIELD -->
                     <div class="block w-full">
                         <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">User
                             ID</label>
@@ -351,8 +293,6 @@
                                 class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-sm block relative z-0">
                         </div>
                     </div>
-
-                    <!-- MEMBER PASSWORD INPUT FIELD -->
                     <div class="block w-full">
                         <label
                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Secure
@@ -363,16 +303,12 @@
                                 class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-sm block relative z-0">
                         </div>
                     </div>
-
-                    <!-- Member Action Submission Button -->
                     <div class="pt-2 block w-full">
                         <button type="submit"
                             class="w-full bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-wider text-sm py-4 rounded-xl shadow-lg shadow-red-600/20 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer block">
                             Access Account Menu
                         </button>
                     </div>
-
-                    <!-- PLACED STRICTLY INSIDE MEMBER FORM TAG CLOSURE -->
                     <div id="membershipPromptPanel" class="mt-8 pt-6 border-t border-slate-100 text-center space-y-3">
                         <p class="text-xs font-medium text-slate-500">Not a club member yet? Join the club to earn
                             points!</p>
@@ -381,14 +317,8 @@
                             Create Pizzeria Membership Account</a>
                     </div>
                 </form>
-
-                <!-- ========================================== -->
-                <!-- FORM 2: ANONYMOUS GUEST LOGIN PIPELINE    -->
-                <!-- ========================================== -->
                 <form id="guestLoginForm" action="/login/guest" method="POST" class="space-y-5 hidden w-full">
                     @csrf
-
-                    <!-- GUEST DEDICATED SEPARATED USER ID FIELD -->
                     <div class="block w-full">
                         <label
                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Guest
@@ -399,11 +329,8 @@
                                 placeholder="Choose a temporary Guest User ID" required
                                 class="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all text-sm block relative z-0">
                         </div>
-                        <!-- Unique Error Feedback Placeholder Row below the single input field -->
                         <div id="status_guest_id" class="text-[10px] font-bold mt-1.5 hidden"></div>
                     </div>
-
-                    <!-- GUEST MANDATORY DELIVERY ADDRESS INPUT FIELD -->
                     <div class="block w-full">
                         <label
                             class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1.5">Delivery
@@ -416,8 +343,6 @@
                             <div id="status_guest_address" class="text-[10px] font-bold mt-1.5 hidden"></div>
                         </div>
                     </div>
-
-                    <!-- Guest Action Submission Button -->
                     <div class="pt-2 block w-full">
                         <button type="submit" id="guestSubmitBtn"
                             class="w-full bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-wider text-sm py-4 rounded-xl shadow-lg shadow-red-600/20 transform hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer block">
@@ -429,16 +354,11 @@
             </div>
         </div>
     </div>
-    <!-- ========================================================================= -->
-    <!-- FRESH CUSTOM BUILDER OVERLAY MASK CONTAINER WINDOW                        -->
-    <!-- ========================================================================= -->
     <div id="customPizzaBuilderModal" onclick="closeCustomPizzaBuilderModal()"
         class="hidden fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 select-none">
         <div onclick="event.stopPropagation()"
             class="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 h-[85vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300"
             id="customBuilderCardCanvas">
-
-            <!-- Header Ribbon Banner Block -->
             <div
                 class="p-6 bg-slate-900 text-white flex items-center justify-between border-b-4 border-orange-600 shrink-0">
                 <div class="flex flex-col">
@@ -449,11 +369,7 @@
                 <button onclick="closeCustomPizzaBuilderModal()"
                     class="text-slate-400 hover:text-white font-black text-lg cursor-pointer transform active:scale-90">✕</button>
             </div>
-
-            <!-- Scrollable Ingredient Workspace Canvas Workboard -->
             <div class="p-6 overflow-y-auto space-y-8 grow bg-slate-50/50" id="customBuilderScrollBody">
-
-                <!-- SECTION 1: DOUGH SELECTION BASE CANVAS (Strict Radio Logic) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">1. Select Your
                         Sourdough Crust Canvas <span class="text-red-500">*</span></span>
@@ -481,7 +397,6 @@
                         @endforeach
                     </div>
                 </div>
-                <!-- SECTION 2: PIZZA DIMENSION SIZE SCALE (Strict Radio Multiplier Logic) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">2. Choose Pizza
                         Dimension Size <span class="text-red-500">*</span></span>
@@ -508,8 +423,6 @@
                         @endforeach
                     </div>
                 </div>
-
-                <!-- SECTION 3: MULTI-SAUCE BLENDER MATRIX (Checkbox Logic - Highest Price Applies) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <div class="flex flex-col">
                         <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">3. Select
@@ -541,7 +454,6 @@
                         @endforeach
                     </div>
                 </div>
-                <!-- SECTION 4: SAUCE PORTION QUANTITY MULTIPLIERS (Radio Logic) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">4. Specify Sauce
                         Portion Quantity Density</span>
@@ -564,8 +476,6 @@
                         @endforeach
                     </div>
                 </div>
-
-                <!-- SECTION 5: STONE-HEARTH BAKING OPTION LEVELS (Radio Logic - Fixed Free Upgrades) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">5. Stone-Hearth
                         Baking Level Upgrade</span>
@@ -580,7 +490,6 @@
                         @endforeach
                     </div>
                 </div>
-                <!-- SECTION 6: CHEESE MELTING OPTION CORE (Strict Radio Logic) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest block">6. Select Core
                         Melting Cheese Selection <span class="text-red-500">*</span></span>
@@ -608,8 +517,6 @@
                         @endforeach
                     </div>
                 </div>
-
-                <!-- SECTION 7: TOPPINGS MATRIX PIPIELINE (Qty Counter + Left/Right/Both Coverage Split Radios) -->
                 <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm space-y-4">
                     <div
                         class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-3 gap-2">
@@ -636,17 +543,11 @@
                             ] as $name => $price)
                             <div class="pt-4 flex flex-col md:flex-row md:items-center justify-between gap-4 row-custom-topping-item"
                                 data-topping-name="{{ $name }}" data-base-price="{{ $price }}">
-
-                                <!-- Left: Detail metrics labels -->
                                 <div class="flex items-center justify-between md:justify-start gap-4">
                                     <span class="text-sm font-black text-slate-900 tracking-tight">{{ $name }}</span>
                                     <span class="text-[10px] font-black text-slate-400">₹{{ $price }}/ea</span>
                                 </div>
-
-                                <!-- Right: Counter triggers alongside Partition Radio Controls -->
                                 <div class="flex items-center justify-between md:justify-end gap-5">
-
-                                    <!-- Side Layout Coverage Matrix Splits -->
                                     <div
                                         class="flex items-center gap-1.5 text-[10px] font-black text-slate-500 uppercase tracking-wider bg-slate-50 p-1 border border-slate-200 rounded-xl hidden element-side-radio-container">
                                         <label
@@ -662,8 +563,6 @@
                                                 type="radio" name="side_{{ Str::slug($name) }}" value="Both"
                                                 class="accent-slate-900 w-3 h-3" checked> Both</label>
                                     </div>
-
-                                    <!-- Incremental Math Counters -->
                                     <div
                                         class="inline-flex items-center bg-slate-900 text-white rounded-xl shadow-md p-0.5 border border-slate-800">
                                         <button type="button" onclick="public_function_changeStudioToppingCount(this, -1)"
@@ -680,12 +579,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Calculation Metrics Summary Footer Row -->
             <div
                 class="p-6 border-t border-slate-100 bg-slate-50 flex items-center justify-between gap-4 shrink-0 mt-auto">
                 <div class="flex flex-col">
-                    <!-- Dynamic 30-Inch Corporate Party Slam Flat ₹500 Discount Promo Banner -->
                     <span id="lblCustomBuilderPromoBanner"
                         class="text-[9px] font-black text-orange-600 bg-orange-50 border border-orange-100 px-2 py-0.5 rounded uppercase tracking-wider mb-1 hidden">🎁
                         Party Deal Applied (-₹500)</span>
@@ -701,9 +597,6 @@
 
         </div>
     </div>
-    <!-- ========================================================================= -->
-    <!-- IMMERSIVE MIDDLE POPUP ORDER SUCCESS LEDGER SCREEN OVERLAY                -->
-    <!-- ========================================================================= -->
     <div id="checkoutSuccessModal"
         class="hidden fixed inset-0 z-[150] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 select-none">
         <div
@@ -719,7 +612,6 @@
                 <p class="text-slate-500 text-xs font-semibold leading-relaxed px-1">
                     Your kitchen slip has been confirmed under secure tracking code reference:
                 </p>
-                <!-- 5-Digit Alphanumeric Display Target Box Field -->
                 <div class="bg-slate-950 text-amber-400 font-mono text-2xl font-black py-3 rounded-2xl border-2 border-slate-900 shadow-inner tracking-widest my-4 uppercase select-text"
                     id="lblPopupGeneratedOrderNo">-----</div>
                 <p class="text-[11px] text-slate-400 font-medium">
@@ -739,12 +631,8 @@
         const tabGuest = document.getElementById('tabGuest');
         const modalTitle = document.getElementById('modalTitle');
         const modalDesc = document.getElementById('modalDesc');
-
-        // Two-Form Structural Container Node Hooks
         const memberLoginForm = document.getElementById('memberLoginForm');
         const guestLoginForm = document.getElementById('guestLoginForm');
-
-        // Isolated Input Element Fields
         const userIdInput = document.getElementById('userIdInput');
         const guestIdInput = document.getElementById('guestIdInput');
         const passwordInput = document.getElementById('passwordInput');
@@ -752,49 +640,35 @@
         const statusGuestId = document.getElementById('status_guest_id');
         const statusMemberLogin = document.getElementById('status_member_login');
         const memberSubmitBtn = memberLoginForm.querySelector('button[type="submit"]');
-
-        // --- MULTI-ROLE CORE BASKET ENGINE ARCHITECTURE ---
         const basketDrawer = document.getElementById('basketSideDrawer');
         const basketContent = document.getElementById('basketContentCanvas');
         const basketContainer = document.getElementById('basketItemsContainerRow');
         const badgeCounter = document.getElementById('globalBasketCounterBadge');
-
         const lblSubtotal = document.getElementById('lblBasketSubtotal');
         const lblDiscount = document.getElementById('lblBasketDiscount');
         const lblFinalTotal = document.getElementById('lblBasketFinalTotal');
         const rowDiscount = document.getElementById('rowBasketPromoDeduction');
         const ledgerOffers = document.getElementById('basketAppliedOffersLedger');
         const listOffersTarget = document.getElementById('basketOffersTargetList');
-
         const warningModal = document.getElementById('clubWarningModal');
-
-        // State storage for runtime calculations
         let activeBasketItemsCollection = [];
         let currentlyAppliedCouponToken = null;
-
-        // Pass server session context securely into JavaScript scopes
         const isClientUserGuestAccount = @json(Auth::check() ? Auth::user()->is_guest : true);
         const isClientUserLoggedIn = @json(Auth::check());
         function toggleBasketDrawer(shouldOpen) {
             if (shouldOpen) {
-                // 1. Reveal overlay frame container layout
                 basketDrawer.classList.remove('hidden');
                 basketDrawer.classList.add('flex');
                 renderDynamicBasketContents();
-
-                // 2. Trigger hardware-accelerated fluid CSS transitions smoothly
                 setTimeout(() => {
                     basketDrawer.classList.remove('opacity-0');
                     basketContent.classList.remove('translate-x-full');
                     basketContent.classList.add('translate-x-0');
                 }, 10);
             } else {
-                // 3. Reverse animations on dismissal execution
                 basketDrawer.classList.add('opacity-0');
                 basketContent.classList.remove('translate-x-0');
                 basketContent.classList.add('translate-x-full');
-
-                // 4. Safely hide elements once CSS slide transitions conclude
                 setTimeout(() => {
                     basketDrawer.classList.add('hidden');
                     basketDrawer.classList.remove('flex');
@@ -806,8 +680,7 @@
             warningModal.classList.add('hidden');
             warningModal.classList.remove('flex');
         }
-
-        // Utility helper function to generate deterministic slugs for text strings matches
+        
         function generateStringSlugTrack(text) {
             return text.toString().toLowerCase().trim()
                 .replace(/\s+/g, '-')
@@ -815,50 +688,40 @@
                 .replace(/\-\-+/g, '-');
         }
 
-        // --- NEW DYNAMIC DURATION FLOATING SUCCESS POPUP TOAST SYSTEM ---
         function triggerCouponSuccessPopupToast(messageText) {
-            // Remove old popup copies if they exist in DOM tree view states
             const oldToast = document.getElementById('couponDynamicSuccessToast');
             if (oldToast) oldToast.remove();
-
-            // Construct new notification container matrix elements
             const toastFrameNode = document.createElement('div');
             toastFrameNode.id = 'couponDynamicSuccessToast';
             toastFrameNode.className = "fixed top-28 left-1/2 -translate-x-1/2 z-[100] bg-slate-900 border-2 border-emerald-500 text-white font-black text-xs md:text-sm tracking-wide uppercase px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 transition-all duration-300 opacity-0 -translate-y-4 scale-95 select-none";
             toastFrameNode.innerHTML = `<span>🎉</span> <span>${messageText}</span>`;
-
             document.body.appendChild(toastFrameNode);
-
-            // Execute fluid sliding fade-in animation ticks layout
+            
             setTimeout(() => {
                 toastFrameNode.classList.remove('opacity-0', '-translate-y-4', 'scale-95');
                 toastFrameNode.classList.add('opacity-100', 'translate-y-0', 'scale-100');
             }, 50);
 
-            // Automatically dissolve and clean up the popup box after 3 seconds
             setTimeout(() => {
                 toastFrameNode.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
                 toastFrameNode.classList.add('opacity-0', '-translate-y-4', 'scale-95');
                 setTimeout(() => { toastFrameNode.remove(); }, 300);
             }, 3000);
         }
-        // --- FIXED PROMOTION COUPON ACTION RECIPIENT PIPELINE ---
+        
         function evaluatePromoCouponClaim(isLockedDeal, couponTitle, discountType, discountValue) {
             if (isLockedDeal && (!isClientUserLoggedIn || isClientUserGuestAccount)) {
-                // Trigger Warning Modal if locked to members and user is anonymous or guest
                 warningModal.classList.remove('hidden');
                 warningModal.classList.add('flex');
                 return;
             }
 
-            // Map the token values into memory arrays perfectly
             currentlyAppliedCouponToken = {
                 title: couponTitle,
                 type: discountType,
                 value: parseInt(discountValue)
             };
 
-            // Format dynamic contextual label messages to push directly inside the toast box layout layers
             let visualDiscountDisplayString = discountType === 'percentage' ? `${discountValue}%` : `₹${discountValue}`;
             triggerCouponSuccessPopupToast(`Congratulations! Discount of ${visualDiscountDisplayString} Applied.`);
 
@@ -866,7 +729,6 @@
             renderDynamicBasketContents();
         }
 
-        // --- MAPPED STRUCTURAL COMBO MEAL BUNDLES ACCESS GATE ---
         function evaluateComboMealClaim(isMembersOnlyDeal, comboTitle, bundlePrice) {
             if (isMembersOnlyDeal && (!isClientUserLoggedIn || isClientUserGuestAccount)) {
                 warningModal.classList.remove('hidden');
@@ -877,7 +739,6 @@
             public_function_addDirectItemToBasket(comboTitle, bundlePrice, "Combo Bundle");
         }
 
-        // --- ADAPTIVE QUANTITY ITEM CONTROL HOOK MATRIX ---
         public_function_addDirectItemToBasket = function (itemName, basePrice, itemCategory) {
             const compiledDirectItem = {
                 id: Date.now() + Math.random(),
@@ -897,7 +758,6 @@
             updateMenuCardCounterUI(itemName, itemCategory, basePrice);
         };
 
-        // --- SUBTRACT QUANTITY ENGINE UNIT STEP ---
         public_function_removeDirectItemUnit = function (itemName, itemCategory, basePrice) {
             const targetIndex = activeBasketItemsCollection.findIndex(item => item.name === itemName);
             if (targetIndex !== -1) {
@@ -908,7 +768,6 @@
             renderDynamicBasketContents();
             updateMenuCardCounterUI(itemName, itemCategory, basePrice);
         };
-        // --- RE-RENDER HOMEPAGE MENU CARD INTERACTIVE QUANTITY COUNTERS ---
         function updateMenuCardCounterUI(itemName, itemCategory, basePrice) {
             const cleanCategorySlug = itemCategory.replace(/\s+/g, '');
             const cleanItemSlug = generateStringSlugTrack(itemName);
@@ -955,7 +814,6 @@
             }
         }
 
-        // Adjust your core removal listener to handle structural menu card sync updates upon item deletions
         function removeBasketItemRowElement(itemUniqueId, itemName, itemCategory, basePrice) {
             activeBasketItemsCollection = activeBasketItemsCollection.filter(item => item.id !== itemUniqueId);
             badgeCounter.innerText = activeBasketItemsCollection.length;
@@ -988,7 +846,6 @@
             renderDynamicBasketContents();
         }
 
-        // --- CART DRAWER INLINE INCREMENT ENGINE EXECUTOR ---
         public_function_executeCartInlineIncrement = function (name, category, unitCost, dough, sauce, cheese, size) {
             const replicatedItemUnit = {
                 id: Date.now() + Math.random(),
@@ -1051,7 +908,6 @@
                 return;
             }
 
-            // 1. VISUAL GROUPING ENGINE FOR DRAWER CARDS STACKING
             const visualGroupMapping = [];
 
             activeBasketItemsCollection.forEach(item => {
@@ -1081,7 +937,6 @@
                 }
             });
 
-            // 2. RENDER STACKED CARDS WITH COUNTER BUTTON CLUSTERS
             visualGroupMapping.forEach(groupItem => {
                 const secondaryLabelDescription = groupItem.size === "Fixed Unit"
                     ? groupItem.category
@@ -1134,20 +989,16 @@
             renderDynamicBasketContents();
         }
 
-        // --- SECURE ASYNC BASKET CHECKOUT ORDER DISPATCHER ---
         function executeBasketCheckoutOrder() {
             if (activeBasketItemsCollection.length === 0) {
                 alert("Your kitchen basket is empty! Configure a hot signature pizza before proceeding.");
                 return;
             }
 
-            // Extract live values out of your drawer's interface labels
             let subtotalVal = parseInt(lblSubtotal.innerText.replace('₹', ''));
             let discountVal = parseInt(lblDiscount.innerText.replace('-₹', '').replace('₹', '')) || 0;
             let finalPriceVal = parseInt(lblFinalTotal.innerText.replace('₹', ''));
             let appliedCouponName = currentlyAppliedCouponToken ? currentlyAppliedCouponToken.title : null;
-
-            // Visual compilation matrix to map your active cart rows safely
             const itemsDataPayloadGrid = [];
             activeBasketItemsCollection.forEach(item => {
                 itemsDataPayloadGrid.push({
@@ -1161,8 +1012,7 @@
                     cost: item.cost
                 });
             });
-
-            // Dispatch post request payload securely to your web route endpoint
+            
             fetch('/process-secure-checkout', {
                 method: 'POST',
                 headers: {
@@ -1184,12 +1034,8 @@
                 })
                 .then(data => {
                     if (data.success) {
-                        // Inject the upper-case 5-digit order number into the popup field box
                         document.getElementById('lblPopupGeneratedOrderNo').innerText = data.order_no;
-
-                        // Shut down the sliding drawer side mask and open the center success modal
                         toggleBasketDrawer(false);
-
                         const successModal = document.getElementById('checkoutSuccessModal');
                         if (successModal) {
                             successModal.classList.remove('hidden');
@@ -1202,13 +1048,9 @@
                     alert("Order Dispatch Error: Check your database connection settings or XAMPP MariaDB port logs.");
                 });
         }
-        // --- REVERT AND PURGE RUNTIME BASKET STORAGE VECTORS ---
         function public_function_closeSuccessModalAndFlushCart() {
-            // Empty your array collection variables instantly
             activeBasketItemsCollection = [];
             currentlyAppliedCouponToken = null;
-
-            // Reset frontend badge labels and calculation sheets back to zero parameters
             if (badgeCounter) badgeCounter.innerText = "0";
             if (rowDiscount) rowDiscount.classList.add('hidden');
 
@@ -1217,8 +1059,6 @@
                 successModal.classList.remove('flex');
                 successModal.classList.add('hidden');
             }
-
-            // Force dynamic page reload to flush old view counts safely out of browser cache memory
             window.location.reload();
         }
 
@@ -1233,11 +1073,9 @@
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.body.classList.remove('overflow-hidden');
-
             userIdInput.value = "";
             guestIdInput.value = "";
             passwordInput.value = "";
-
             userIdInput.style.borderColor = "#e2e8f0";
             guestIdInput.style.borderColor = "#e2e8f0";
             statusGuestId.classList.add('hidden');
@@ -1344,13 +1182,10 @@
                 submitBtn.removeAttribute('disabled');
             }
         });
-
-
-        // Locate this block in your Part 6 of 6 area and add the address extraction variable:
         guestLoginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const guestValue = guestIdInput.value.trim();
-            const guestAddressValue = document.getElementById('guestAddressInput').value.trim(); // Added tracking hook
+            const guestAddressValue = document.getElementById('guestAddressInput').value.trim();
             if (!guestValue || !guestAddressValue) return;
 
             try {
@@ -1365,11 +1200,9 @@
                     },
                     body: JSON.stringify({
                         user_id: guestValue,
-                        address: guestAddressValue // Injected into payload bag
+                        address: guestAddressValue
                     })
                 });
-
-                // ... remainder of your existing logic stays exactly identical ...
 
 
                 const data = await response.json();
@@ -1450,17 +1283,13 @@
                 if (arrow) arrow.style.transform = "rotate(0deg)";
             }
         });
-        // --- 1. BUILDER VARIABLES ---
         let selectedCustomDoughPrice = 60;
         let selectedCustomDoughName = 'Classic Hand-Tossed';
         let selectedCustomSizeMultiplier = 1.00;
         let selectedCustomSizeName = 'Regular-10"';
         let customSauceAmountMultiplier = 1.00;
         let customSauceAmountName = 'Regular';
-
-        // --- 2. FORMS SELECTION HANDLERS LINKERS ---
         document.addEventListener("DOMContentLoaded", function () {
-            // Track radio choices for Dough Canvas selection row
             document.querySelectorAll('input[name="custom_dough"]').forEach(radio => {
                 radio.addEventListener('change', function () {
                     selectedCustomDoughPrice = parseInt(this.getAttribute('data-price'));
@@ -1469,7 +1298,6 @@
                 });
             });
 
-            // Track radio choices for Size scale factor row selection
             document.querySelectorAll('input[name="custom_size"]').forEach(radio => {
                 radio.addEventListener('change', function () {
                     selectedCustomSizeMultiplier = parseFloat(this.getAttribute('data-multiplier'));
@@ -1478,14 +1306,12 @@
                 });
             });
 
-            // Track checkbox combinations for multi-sauce selectors
             document.querySelectorAll('input[name="custom_sauces"]').forEach(box => {
                 box.addEventListener('change', function () {
                     calculateLiveCustomPizzaStudioPrice();
                 });
             });
 
-            // Track radio choices for Sauce Amount scale factor selection
             document.querySelectorAll('input[name="custom_sauce_amount"]').forEach(radio => {
                 radio.addEventListener('change', function () {
                     customSauceAmountMultiplier = parseFloat(this.getAttribute('data-multiplier'));
@@ -1493,37 +1319,28 @@
                     calculateLiveCustomPizzaStudioPrice();
                 });
             });
-
-            // Track radio choices for Melting Cheese selection row
+            
             document.querySelectorAll('input[name="custom_cheese"]').forEach(radio => {
                 radio.addEventListener('change', function () {
                     calculateLiveCustomPizzaStudioPrice();
                 });
             });
         });
-        // --- 3. MODAL VISIBILITY SLIDERS ---
+        
         function public_function_openCustomPizzaBuilderModal() {
             const builderModalFrame = document.getElementById('customPizzaBuilderModal');
             const builderContentCard = document.getElementById('customBuilderCardCanvas');
-
-            // Reset selection state records to clean defaults upon opening
             selectedCustomDoughPrice = 60;
             selectedCustomDoughName = 'Classic Hand-Tossed';
             selectedCustomSizeMultiplier = 1.00;
             selectedCustomSizeName = 'Regular-10"';
             customSauceAmountMultiplier = 1.00;
             customSauceAmountName = 'Regular';
-
-            // Clear homepage toppings counters text label nodes and side split controls
             document.querySelectorAll('.label-topping-qty-display').forEach(lbl => lbl.innerText = "0");
             document.querySelectorAll('.element-side-radio-container').forEach(div => { div.classList.add('hidden'); });
-
-            // Reveal the structural modal overlay container
             builderModalFrame.classList.remove('hidden');
             builderModalFrame.classList.add('flex');
-            document.body.classList.add('overflow-hidden'); // Lock background scroll
-
-            // Smooth scale expansion transition trick execution
+            document.body.classList.add('overflow-hidden');
             setTimeout(() => {
                 builderContentCard.className = "w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 h-[85vh] flex flex-col overflow-hidden transform scale-100 transition-transform duration-300";
             }, 50);
@@ -1534,31 +1351,25 @@
         function closeCustomPizzaBuilderModal() {
             const builderModalFrame = document.getElementById('customPizzaBuilderModal');
             const builderContentCard = document.getElementById('customBuilderCardCanvas');
-
-            // Play retracting shrink animation
             builderContentCard.className = "w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-100 h-[85vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300";
 
             setTimeout(() => {
                 builderModalFrame.classList.add('hidden');
                 builderModalFrame.classList.remove('flex');
-                document.body.classList.remove('overflow-hidden'); // Release scroll lock
+                document.body.classList.remove('overflow-hidden');
             }, 200);
         }
-        // --- 4. TOPPINGS ROW MATH COUNTER EVALUATORS ---
+        
         function public_function_changeStudioToppingCount(buttonElement, operationValue) {
-            // Find the closest parent row item container card to isolate inputs
             const rowItemCardShell = buttonElement.closest('.row-custom-topping-item');
             const toppingName = rowItemCardShell.getAttribute('data-topping-name');
             const quantityLabelField = rowItemCardShell.querySelector('.label-topping-qty-display');
             const sideLayoutControlsBlock = rowItemCardShell.querySelector('.element-side-radio-container');
-
             let currentActiveCount = parseInt(quantityLabelField.innerText);
-
-            // Calculate dynamic cap boundaries by checking the active size radio
             const sizeInput = document.querySelector('input[name="custom_size"]:checked');
             const sizeName = sizeInput ? sizeInput.value : 'Regular-10"';
 
-            let maximumAllowedCapLimit = 3; // Default fallback protection count
+            let maximumAllowedCapLimit = 3;
             if (sizeName.includes('6"') || sizeName.includes('8"')) {
                 maximumAllowedCapLimit = 2;
             } else if (sizeName.includes('10"') || sizeName.includes('12"')) {
@@ -1569,20 +1380,17 @@
                 maximumAllowedCapLimit = 6;
             }
 
-            // Sync the max alert badge message
             const maxAlertBadge = document.getElementById('lblCustomMaxToppingAlert');
             if (maxAlertBadge) {
                 maxAlertBadge.innerText = `Max Per Item: ${maximumAllowedCapLimit} units`;
             }
 
-            // Execute item increments or reductions bounds calculations
             currentActiveCount += operationValue;
             if (currentActiveCount < 0) currentActiveCount = 0;
             if (currentActiveCount > maximumAllowedCapLimit) currentActiveCount = maximumAllowedCapLimit;
 
             quantityLabelField.innerText = currentActiveCount;
 
-            // Reveal or mask the split side radio layout controllers row matrix
             if (currentActiveCount > 0) {
                 if (sideLayoutControlsBlock) sideLayoutControlsBlock.classList.remove('hidden');
             } else {
@@ -1591,16 +1399,13 @@
 
             calculateLiveCustomPizzaStudioPrice();
         }
-        // --- 5. LIVE CORE MATHEMATICAL MATRIX CALCULATOR ---
         function calculateLiveCustomPizzaStudioPrice() {
-            // 1. DOUGH BASE SELECTION EVALUATION
             const activeDoughInput = document.querySelector('input[name="custom_dough"]:checked');
             if (activeDoughInput) {
                 selectedCustomDoughPrice = parseInt(activeDoughInput.getAttribute('data-price'));
                 selectedCustomDoughName = activeDoughInput.value;
             }
 
-            // 2. SIZE SCALE MULTIPLIER EVALUATION
             const activeSizeInput = document.querySelector('input[name="custom_size"]:checked');
             if (activeSizeInput) {
                 selectedCustomSizeMultiplier = parseFloat(activeSizeInput.getAttribute('data-multiplier'));
@@ -1609,7 +1414,6 @@
 
             let pizzaCoreBaselineCost = selectedCustomDoughPrice;
 
-            // 3. MULTI-SAUCE HIGHEST PRICE DETECTION PIPELINE
             let highestCheckedSaucePrice = 0;
             let totalSaucesCheckedCount = 0;
 
@@ -1621,7 +1425,6 @@
                 }
             });
 
-            // 4. SAUCE PORTION DENSITY QUANTITY FACTOR EVALUATION
             const activeSauceAmountInput = document.querySelector('input[name="custom_sauce_amount"]:checked');
             if (activeSauceAmountInput) {
                 customSauceAmountMultiplier = parseFloat(activeSauceAmountInput.getAttribute('data-multiplier'));
@@ -1631,17 +1434,14 @@
             if (totalSaucesCheckedCount > 0) {
                 pizzaCoreBaselineCost += Math.round(highestCheckedSaucePrice * customSauceAmountMultiplier);
             }
-
-            // 5. CHEESE OPTION CORE CONFIGURATION EVALUATION
+            
             const activeCheeseInput = document.querySelector('input[name="custom_cheese"]:checked');
             if (activeCheeseInput) {
                 pizzaCoreBaselineCost += parseInt(activeCheeseInput.getAttribute('data-price'));
             }
-
-            // 6. SCALE COMBINED BASE INFUSION VIA ACTIVE SIZE MULTIPLIERS
+            
             let calculatedSubtotalValue = Math.round(pizzaCoreBaselineCost * selectedCustomSizeMultiplier);
 
-            // 7. ACCUMULATE INLINE SELECTIONS FROM THE TOPPINGS INVENTORY
             document.querySelectorAll('.row-custom-topping-item').forEach(row => {
                 const basePrice = parseInt(row.getAttribute('data-base-price'));
                 const quantityLabel = row.querySelector('.label-topping-qty-display');
@@ -1652,7 +1452,6 @@
                 }
             });
 
-            // 8. THE 30-INCH CORPORATE PARTY SLAM COUPON ENFORCEMENT
             let finalCorporateDeductionValue = 0;
             const discountBannerRow = document.getElementById('lblCustomBuilderPromoBanner');
 
@@ -1665,33 +1464,26 @@
 
             const checkoutGrandTotalCost = Math.max(0, calculatedSubtotalValue - finalCorporateDeductionValue);
 
-            // Print calculated metrics to total summary fields inside the modal footer
             const displayLabel = document.getElementById('lblCustomStudioCalculatedTotal');
             if (displayLabel) {
                 displayLabel.innerText = "₹" + checkoutGrandTotalCost;
             }
         }
-        // --- 6. CUSTOM PIZZA ASSEMBLY PACKAGER & BASKET INJECTION HIGHWAY ---
+        
         function public_function_submitCustomPizzaToBasket() {
-            // 1. Compile selected sauces list arrays
             let checkedSaucesArray = [];
             document.querySelectorAll('input[name="custom_sauces"]:checked').forEach(box => {
                 checkedSaucesArray.push(box.value);
             });
 
-            // Chef Validation: Block entry if zero sauces are selected
             if (checkedSaucesArray.length === 0) {
                 alert("Chef's Warning: Please select at least one base sauce spread to bake your custom pizza!");
                 return;
             }
 
-            // Gather active baking configuration level text
             const activeBakingInput = document.querySelector('input[name="custom_baking"]:checked');
             const bakingLevel = activeBakingInput ? activeBakingInput.value : 'Normal Hearth';
-
-            // 2. Build explicit details item line breakdown description recipe log strings
             let recipeSummaryTextString = `Sauces: (${checkedSaucesArray.join(' + ')} [${customSauceAmountName}]); Baking: ${bakingLevel}; `;
-
             let selectedToppingsList = [];
             document.querySelectorAll('.row-custom-topping-item').forEach(row => {
                 const toppingName = row.getAttribute('data-topping-name');
@@ -1710,11 +1502,9 @@
                 recipeSummaryTextString += `Toppings: Cheese Only Base`;
             }
 
-            // Extract calculated totals out of total label views container rows
             let finalPriceText = document.getElementById('lblCustomStudioCalculatedTotal').innerText;
             let computedCheckoutCost = parseInt(finalPriceText.replace('₹', ''));
 
-            // 3. Package metrics data payload inside unified object block structure
             const customPizzaPayloadObj = {
                 id: Date.now() + Math.random(),
                 name: "Your Custom Recipe",
@@ -1726,15 +1516,10 @@
                 cost: computedCheckoutCost
             };
 
-            // 4. Inject structural object state directly inside shared basket collection vectors
             activeBasketItemsCollection.push(customPizzaPayloadObj);
             badgeCounter.innerText = activeBasketItemsCollection.length;
-
-            // Close studio screen layout context views and silently refresh totals lines
             closeCustomPizzaBuilderModal();
             renderDynamicBasketContents();
-
-            // Trigger floating success notification banner toast box cleanly
             triggerCouponSuccessPopupToast("Custom Pizza Design Loaded Into Basket!");
         }
 
