@@ -11,9 +11,6 @@ class Order extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [
         'user_id',
         'order_no',
@@ -26,20 +23,13 @@ class Order extends Model
         'status'
     ];
 
-    /**
-     * Relationship: An order belongs strictly to a registered member.
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
-    /**
-     * Relationship: An order contains multiple individual item cards.
-     */
     public function items(): HasMany
     {
-        // Links child records using your unique 'order_no' reference keys string
         return $this->hasMany(OrderItem::class, 'order_no', 'order_no');
     }
 }
